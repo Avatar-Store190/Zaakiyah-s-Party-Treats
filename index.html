@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zaakiyah's Party Treats | Cakes & Party Planner in Delft</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{background:#FFFDF7;color:#2b2218;line-height:1.6}
+a{text-decoration:none}
+.topbar{background:#1B6B4A;color:#fff;padding:9px 14px;text-align:center;font-size:13px}
+.topbar b{color:#FFD166}
+header{position:sticky;top:0;background:#fff;display:flex;justify-content:space-between;align-items:center;padding:11px 14px;box-shadow:0 2px 14px rgba(27,107,74,.18);z-index:20;border-bottom:3px solid #FF8FA3}
+.logo{cursor:pointer;display:flex;align-items:center;gap:10px}
+.logo-mark{width:50px;height:50px;background:#FF8FA3;color:#fff;display:grid;place-items:center;font-size:24px;border-radius:50%;border:2px solid #1B6B4A}
+.logo b{font-size:18px;color:#1B6B4A;line-height:1;display:block}
+.logo span{font-size:10px;letter-spacing:1.5px;color:#E76F51;font-weight:900}
+nav{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+nav button{border:none;background:#FFF0F3;color:#1B6B4A;padding:10px 11px;border-radius:999px;font-weight:800;font-size:13px;cursor:pointer}
+nav button.active{background:#1B6B4A;color:#fff}
+.btn{background:#E76F51;color:#fff;padding:14px 20px;border-radius:999px;font-weight:900;display:inline-block;border:none;cursor:pointer;font-size:15px;text-align:center}
+.btn-green{background:#1B6B4A;color:#fff}.btn-pink{background:#FF8FA3;color:#fff}.btn-gold{background:#FFD166;color:#000}.btn-grey{background:#FFF0F3;color:#111}
+.page{display:none}.page.active{display:block}
+.hero{background:linear-gradient(135deg,#1B6B4A 0%,#2A9D6E 45%,#FF8FA3 100%);color:#fff;padding:30px 16px 36px;text-align:center}
+.hero .pill{background:#FFD166;color:#000;display:inline-block;padding:7px 14px;border-radius:999px;font-size:12px;font-weight:900}
+.hero h1{font-size:36px;line-height:1.05;margin:14px 0 10px}.hero h1 span{color:#FFE8A3}
+.hero p{max-width:580px;margin:0 auto 18px;opacity:.96;font-size:17px}
+.hero-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.trust{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:18px;font-size:13px;font-weight:700}
+.trust div{background:rgba(255,255,255,.25);padding:8px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.4)}
+.section{padding:28px 16px;max-width:800px;margin:0 auto}
+.section h2{font-size:27px;color:#1B6B4A;margin-bottom:6px}.section p.sub{color:#777;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:#fff;padding:18px;border-radius:18px;border:2px solid #FFE0E6;border-top:5px solid #FF8FA3}
+.card.green{border-top-color:#1B6B4A;border-color:#D6F0E2}.card.orange{border-top-color:#E76F51;border-color:#FFE3D6}.card.gold{border-top-color:#E9B000;border-color:#FFF0B5}
+.card h3{color:#1B6B4A;margin-bottom:4px}.card p{font-size:14px;color:#666}
+.price{font-weight:900;color:#E76F51;font-size:18px;margin-top:8px}
+.price-box{background:#FFF7D6;border:2px solid #FFD166;padding:14px;border-radius:12px;margin-top:12px;font-size:15px}
+.review{background:#fff;border:1px solid #FFE0E6;border-radius:14px;padding:16px;margin-bottom:10px}
+.stars{color:#E9A800;font-size:18px}
+input,select,textarea{width:100%;padding:14px;border-radius:12px;border:2px solid #FFC9D6;margin:6px 0 10px;font-size:16px}
+input[type=checkbox]{width:22px;height:22px;accent-color:#E76F51}
+label{font-size:13px;font-weight:800;color:#1B6B4A}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chips span{background:#FFF0F3;padding:7px 11px;border-radius:999px;font-size:13px;font-weight:700;border:1px solid #FFC9D6;color:#1B6B4A}
+.gallery{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.gallery div{border-radius:14px;height:115px;display:grid;place-items:center;font-size:30px;background:#FFF0F3;border:1px solid #FFC9D6;overflow:hidden}
+.gallery img{width:100%;height:100%;object-fit:cover}
+footer{background:#1B6B4A;color:#fff;padding:26px 16px;text-align:center;font-size:14px;border-top:4px solid #FFD166}
+footer a{color:#FFD166}
+.float{position:fixed;bottom:16px;right:16px;background:#25D366;color:#fff;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;font-size:28px;box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:30}
+.admin-box{background:#fff;border:3px solid #E76F51;border-radius:18px;padding:20px;margin:16px auto;max-width:760px}
+.admin-card{background:#FFFDF7;border:1px solid #FFC9D6;border-radius:12px;padding:12px;margin-bottom:10px}
+.small{font-size:12px;color:#888}
+.team-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.team-card{background:#fff;border:2px solid #FFE0E6;border-radius:14px;padding:14px;text-align:center}
+.team-card img{width:88px;height:88px;object-fit:cover;border-radius:50%;border:3px solid #FFD166}
+.team-avatar{width:88px;height:88px;border-radius:50%;background:#FF8FA3;color:#fff;display:grid;place-items:center;font-size:30px;font-weight:900;margin:0 auto;border:3px solid #1B6B4A}
+.upload-preview{width:100%;max-height:150px;object-fit:contain;background:#fff;border:1px dashed #ccc;border-radius:10px;margin:6px 0}
+.toggle-box{background:#FFF0F3;border:2px solid #FFD166;border-radius:12px;padding:14px;display:flex;align-items:center;gap:10px}
+.emoji-big{font-size:44px;line-height:1}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}.team-grid{grid-template-columns:1fr 1fr}.hero h1{font-size:30px}nav button{padding:9px 9px;font-size:12px}}
+</style>
+</head>
+<body>
+<div id="site">
+<div class="topbar">ZAAKIYAH'S PARTY TREATS - <b>4.8 Stars (4 Reviews)</b> - Party Planner - Delft</div>
+<header>
+<div class="logo" onclick="goPage('home')"><div class="logo-mark">Z</div><div><b>Zaakiyah's</b><b>Party Treats</b><span>DELFT • CAPE TOWN</span></div></div>
+<nav><button id="btn-home" class="active" onclick="goPage('home')">Home</button><button id="btn-menu" onclick="goPage('menu')">Treats & Cakes</button><button id="btn-book" onclick="goPage('book')">Book</button></nav>
+</header>
+
+<div id="page-home" class="page active">
+<section class="hero">
+<span class="pill">CAKES • TREATS • PARTY PLANNER - DELFT - 4.8 RATED</span>
+<h1>Delicious Cakes<br><span>And Party Treats.</span></h1>
+<p>Beautiful wedding cakes, birthday cakes and party treats. Delicious and very affordable. Aunty Zaakiyah has been making cakes for families for years.</p>
+<div class="hero-btns"><button class="btn btn-gold" onclick="goPage('menu')">See Treats & Prices</button><button class="btn btn-green" onclick="goPage('book')">Book Your Party</button></div>
+<div class="trust"><div>4.8 Stars (4 Reviews)</div><div>58 Hawthorn Way, Delft</div><div>Opens 9am Sat</div><div>Women-Owned</div></div>
+</section>
+<section class="section">
+<h2>Why Delft Loves Zaakiyah</h2>
+<p class="sub">From first birthday to wedding — she walks the journey with you.</p>
+<div class="grid">
+<div class="card green"><div class="emoji-big">🎂</div><h3>Cakes</h3><p>Birthday, wedding and celebration cakes. Beautiful and affordable.</p></div>
+<div class="card"><div class="emoji-big">🧁</div><h3>Party Treats</h3><p>Cupcakes, treats, sweet tables for your party.</p></div>
+<div class="card orange"><div class="emoji-big">🎉</div><h3>Party Planner</h3><p>We plan your party, setup and treats. You just celebrate.</p></div>
+<div class="card gold"><div class="emoji-big">💍</div><h3>Wedding Cakes</h3><p>Beautiful wedding cake, made with love.</p></div>
+</div>
+<div class="price-box" id="specialHomeBox" style="display:none"><b>This Week Special:</b> <span id="specialHome"></span></div>
+</section>
+<section class="section" style="background:#FFF7D6;border-radius:18px">
+<h2>Best Sellers From Google</h2>
+<p class="sub">These are what everyone orders:</p>
+<div class="grid">
+<div class="card green"><h3>Green & Orange Celebration Cake</h3><p>Green cake with orange flower topper. As seen on Google.</p><div class="price">Most Ordered</div></div>
+<div class="card"><h3>Pink Birthday Cake</h3><p>Pink cake for kids birthday. Loved by families.</p><div class="price">Kids Favourite</div></div>
+<div class="card orange"><h3>Beautiful Wedding Cake</h3><p>Delicious and very affordable wedding cake.</p><div class="price">Wedding Favourite</div></div>
+<div class="card gold"><h3>Party Treats Box</h3><p>Mixed treats for birthdays and parties.</p><div class="price">Party Favourite</div></div>
+</div>
+<button class="btn" style="margin-top:14px;width:100%" onclick="goPage('menu')">See Full Menu</button>
+</section>
+<section class="section">
+<h2>Our Treats</h2>
+<div class="gallery" id="galleryHome"></div>
+<button class="btn btn-green" style="margin-top:14px;width:100%" onclick="goPage('book')">Order Your Treats</button>
+</section>
+</div>
+
+<div id="page-menu" class="page">
+<section class="section">
+<h2>Treats & Cakes Menu</h2>
+<p class="sub">Prices set by owner. Online appointments - order on WhatsApp first. On-site services available.</p>
+<div class="grid" id="servicesGrid"></div>
+<div class="price-box" id="specialBox" style="display:none"><b>This Week Special:</b> <span id="specialText"></span></div>
+<div class="price-box"><b>How To Order:</b> 1. Choose cake / treats - 2. Send photo on WhatsApp - 3. Tell us date, theme and flavour - 4. We confirm price - 5. Pickup / Delivery in Delft</div>
+</section>
+<section class="section" style="background:#FFF7D6;border-radius:18px">
+<h2>Gallery - Real Treats From Google</h2>
+<p class="sub">Green celebration cake, pink birthday cake, wedding cake, party treats and more.</p>
+<div class="gallery" id="galleryServices"></div>
+</section>
+<section class="section">
+<h2>What Clients Say - 4.8 Stars</h2>
+<div class="review"><div class="stars">★★★★★</div><p><b>I have walked a journey with this lovely lady. She knew me when I was pregnant with my second child and he recently turned 10. His aunty Zaakiyah is still making his cakes and he loves it every year.</b></p><p style="font-size:13px;color:#777">- Nadeen Steady</p></div>
+<div class="review"><div class="stars">★★★★★</div><p><b>The cakes of Zaakiyah are delicious and very affordable. Thank you again for my beautiful wedding cake. May God bless your journey ahead and may you prosper in everything you do.</b></p><p style="font-size:13px;color:#777">- Gillian Engelbrecht</p></div>
+<div class="review"><div class="stars">★★★★★</div><p><b>Thank you for your review.</b></p><p style="font-size:13px;color:#777">- Melanie Nelson / Angelica Daames - Google Reviews</p></div>
+<div style="text-align:center"><a href="https://www.google.com/maps/search/?api=1&amp;query=Zaakiyah+Party+Treats+Delft+Cape+Town" target="_blank" style="color:#E76F51;font-weight:800">See All 4 Reviews On Google</a></div>
+</section>
+<section class="section">
+<h2>Meet The Team</h2>
+<div class="team-grid" id="teamGrid"></div>
+</section>
+</div>
+
+<div id="page-book" class="page">
+<section class="section">
+<form onsubmit="sendWhatsApp(event)" style="background:#1B6B4A;color:#fff;padding:22px;border-radius:20px;border:3px solid #FFD166">
+<h2 style="color:#fff">Book Your Cake / Party</h2>
+<p style="font-size:14px;opacity:.9;margin-bottom:12px">Fill in 30 seconds. Goes straight to Zaakiyah on WhatsApp.</p>
+<label style="color:#fff">Your Name</label><input id="name" required>
+<label style="color:#fff">Your WhatsApp Number</label><input id="clientPhone" inputmode="numeric">
+<label style="color:#fff">What Do You Need?</label><select id="serviceSelect"></select>
+<label style="color:#fff">Cake Theme / Colour</label><select id="theme"><option>Green + Orange - Like Photo</option><option>Pink Birthday</option><option>Wedding - White + Gold</option><option>Party Treats Mix</option><option>Other / Tell Us</option></select>
+<label style="color:#fff">Flavour</label><select id="flavour"><option>Vanilla</option><option>Chocolate</option><option>Red Velvet</option><option>Caramel</option><option>Other</option></select>
+<label style="color:#fff">How Many People?</label><select id="size"><option>Small - Up to 10</option><option>Medium - 10-20</option><option>Large - 20-30</option><option>Extra Large - Wedding / Big Party</option></select>
+<label style="color:#fff">Date You Need It</label><input id="date" type="date">
+<label style="color:#fff">Pickup / Service</label><select id="pickup"><option>Pickup - 58 Hawthorn Way, Delft</option><option>On-Site Service - Party Setup</option><option>Online Appointment - Call First</option><option>Ask About Delivery</option></select>
+<label style="color:#fff">Describe Your Cake / Party</label><textarea id="msg" rows="3" placeholder="e.g. Birthday cake for 10 year old, pink, name ..."></textarea>
+<button class="btn btn-gold" style="width:100%;font-size:17px;color:#000" type="submit">Send Booking On WhatsApp</button>
+<p style="text-align:center;margin-top:10px;font-size:14px">Or Call: <b id="callText">066 183 4302</b></p>
+</form>
+</section>
+<section class="section">
+<h2>Find Us</h2>
+<p><b>Address:</b> 58 Hawthorn Way, Delft, Cape Town, 7100<br><b>Code:</b> 2J8Q+6G Delft, Cape Town<br><b>Hours:</b> Closed - Opens 9am Sat<br><b>Service:</b> Online appointments, On-site services<br><b>From The Business:</b> Women-owned, LGBTQ+ Friendly, Transgender safe space</p>
+<div class="chips"><span>Delft</span><span>Delft South</span><span>Blue Downs</span><span>Belhar</span><span>Mfuleni</span></div><br>
+<a class="btn btn-green" href="https://www.google.com/maps/search/?api=1&amp;query=Zaakiyah+Party+Treats+58+Hawthorn+Way+Delft+Cape+Town" target="_blank">Find On Google Maps</a>
+</section>
+</div>
+
+<footer>
+<h3 style="color:#fff">ZAAKIYAH'S PARTY TREATS</h3>
+<p>Party Planner - 4.8 Stars (4 Reviews) - Delft, Cape Town</p>
+<p style="margin-top:10px">58 Hawthorn Way, Delft, Cape Town, 7100<br>Closed - Opens 9am Sat</p>
+<p style="margin-top:10px"><a id="footerWhatsApp" href="#">WhatsApp Us</a> - <a id="footerCall" href="#">Call Us</a> - <a href="#admin" onclick="showAdmin()">Owner Login</a></p>
+<p style="opacity:.6;margin-top:12px;font-size:12px">Website built by Avatar Web Store - 2026 Zaakiyah's Party Treats</p>
+</footer>
+<a class="float" id="floatWhatsApp" href="#" target="_blank">💬</a>
+</div>
+
+<div id="admin" style="display:none;background:#FFFDF7;min-height:100vh;padding:16px">
+<div class="admin-box">
+<h2 style="color:#1B6B4A">Owner Dashboard</h2><p class="small">Zaakiyah's Party Treats</p>
+<div id="loginBox" style="margin-top:16px"><label>Your Phone Number</label><input id="loginPhone" inputmode="numeric"><label>Password</label><input id="loginPass" type="password" inputmode="numeric"><button class="btn" style="width:100%" onclick="doLogin()">Login</button><p id="loginError" style="color:red;font-weight:700"></p></div>
+<div id="dashBox" style="display:none;margin-top:16px">
+<p><b>Welcome, Owner</b> <span id="showPhone"></span></p>
+<button class="btn btn-grey" onclick="doLogout()">Log Out</button>
+<button class="btn btn-green" onclick="document.getElementById('passBox').style.display='block'">Change Password</button>
+<div id="passBox" style="display:none;margin-top:12px;background:#FFF0F3;padding:14px;border-radius:12px"><h4>Change Password - Numbers Only</h4><label>Old Password</label><input id="oldPass" inputmode="numeric"><label>New Password</label><input id="newPass" inputmode="numeric"><label>Repeat New Password</label><input id="newPass2" inputmode="numeric"><button class="btn" onclick="changePassword()">Save New Password</button><p id="passMsg" style="font-weight:700"></p></div>
+<h3 style="margin-top:20px">1. Company Logo</h3><div id="currentLogoPreview"></div><label>Choose Logo Photo</label><input type="file" accept="image/*" onchange="uploadLogo(event)"><button class="btn btn-grey" onclick="removeLogo()">Remove Logo - Use Demo Logo</button>
+<h3 style="margin-top:20px">2. Your Phone / WhatsApp Number</h3><input id="editPhone">
+<h3>3. This Week Special</h3><div class="toggle-box"><input type="checkbox" id="editShowSpecial" onchange="toggleSpecialInput()"><b>Show Special On Website? Tick = Show, Untick = Hide</b></div><div id="specialInputBox" style="display:none;margin-top:10px"><label>Write Your Special Here</label><input id="editSpecial"></div>
+<h3>4. Treats and Cakes Prices</h3><div id="editServices"></div><button class="btn btn-green" onclick="addService()">+ Add Cake / Item</button>
+<h3 style="margin-top:20px">5. Gallery Photos</h3><div id="editGallery"></div><label>Add Gallery Photo</label><input type="file" accept="image/*" onchange="addGalleryPhoto(event)">
+<h3 style="margin-top:20px">6. Your Team</h3><div id="editTeam"></div><button class="btn btn-green" onclick="addBrother()">+ Add Team Member</button><br><br>
+<button class="btn" style="width:100%;font-size:17px" onclick="saveAll()">SAVE ALL CHANGES</button><p id="saveMsg" style="color:green;font-weight:800;margin-top:8px"></p><button class="btn btn-grey" style="width:100%;margin-top:10px" onclick="showSite()">Back To Website</button>
+</div></div></div>
+
+<script>
+var OWNER_PHONE = "27661834302";
+var DEFAULT_SERVICES = [
+  {name:"Green and Orange Celebration Cake", desc:"Green cake with orange flower topper. As seen on Google.", price:"From R550"},
+  {name:"Pink Birthday Cake", desc:"Pink cake for kids birthday. Loved by families.", price:"From R500"},
+  {name:"Beautiful Wedding Cake", desc:"Delicious and very affordable wedding cake.", price:"Free Quote"},
+  {name:"Party Treats Box", desc:"Mixed cupcakes and treats for birthdays and parties.", price:"From R350"},
+  {name:"Cupcakes - Box of 12", desc:"Vanilla, chocolate or mixed cupcakes.", price:"From R250"},
+  {name:"Party Planning - Full Setup", desc:"We plan your party, setup and treats. On-site services.", price:"Free Quote"},
+  {name:"Sweet Table Setup", desc:"Treats table for birthday, wedding or baby shower.", price:"From R800"},
+  {name:"Custom Cake - Your Design", desc:"Send us a photo, we make it for you.", price:"Free Quote"}
+];
+var DEFAULT_TEAM = [{name:"Zaakiyah", role:"Owner, Baker and Party Planner", phone:"", photo:""},{name:"Team Member 2", role:"Baker", phone:"", photo:""},{name:"Team Member 3", role:"Assistant", phone:"", photo:""}];
+var DEFAULT_GALLERY = ["Treats","Treats","Treats","Treats","Treats","Treats"];
+function esc(s){ return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function getData(){ var d=null; try{ d=JSON.parse(localStorage.getItem("zaakiyah_v1")||"null"); }catch(e){ d=null; } if(!d){ d={phone:OWNER_PHONE, services:DEFAULT_SERVICES, team:DEFAULT_TEAM, gallery:DEFAULT_GALLERY, special:"", showSpecial:false, password:"0661834302", logo:""}; localStorage.setItem("zaakiyah_v1", JSON.stringify(d)); } return d; }
+function saveData(d){ localStorage.setItem("zaakiyah_v1", JSON.stringify(d)); }
+function toggleSpecialInput(){ document.getElementById("specialInputBox").style.display=document.getElementById("editShowSpecial").checked?"block":"none"; }
+function goPage(p){ var pages=document.querySelectorAll(".page"); for(var i=0;i<pages.length;i++){ pages[i].classList.remove("active"); } document.getElementById("page-"+p).classList.add("active"); var btns=document.querySelectorAll("nav button"); for(var j=0;j<btns.length;j++){ btns[j].classList.remove("active"); } document.getElementById("btn-"+p).classList.add("active"); window.scrollTo(0,0); }
+function galleryHTML(){ var d=getData(); var out=""; for(var i=0;i<d.gallery.length;i++){ var g=d.gallery[i]; if(g.indexOf("data:")===0){ out+='<div><img src="'+esc(g)+'"></div>'; } else { out+='<div>'+esc(g)+'</div>'; } } return out; }
+function renderSite(){
+  var d=getData(); var wa="https://wa.me/"+d.phone+"?text="+encodeURIComponent("Hi Zaakiyah's Party Treats, I want to book a cake / party in Delft");
+  document.getElementById("footerWhatsApp").href=wa; document.getElementById("floatWhatsApp").href=wa; document.getElementById("footerCall").href="tel:+"+d.phone; document.getElementById("callText").textContent="0"+d.phone.substring(2);
+  var show=d.showSpecial && d.special && d.special.trim()!==""; document.getElementById("specialHomeBox").style.display=show?"block":"none"; document.getElementById("specialBox").style.display=show?"block":"none"; document.getElementById("specialText").textContent=d.special; document.getElementById("specialHome").textContent=d.special;
+  var grid=document.getElementById("servicesGrid"); var sel=document.getElementById("serviceSelect"); grid.innerHTML=""; sel.innerHTML="";
+  for(var k=0;k<d.services.length;k++){ var s=d.services[k]; var card=document.createElement("div"); card.className="card"; var h=document.createElement("h3"); h.textContent=s.name; var p=document.createElement("p"); p.textContent=s.desc; var pr=document.createElement("div"); pr.className="price"; pr.textContent=s.price; var b=document.createElement("button"); b.className="btn"; b.style.marginTop="10px"; b.style.padding="10px 16px"; b.style.fontSize="14px"; b.textContent="Order This"; b.onclick=function(){ goPage("book"); }; card.appendChild(h); card.appendChild(p); card.appendChild(pr); card.appendChild(b); grid.appendChild(card); var opt=document.createElement("option"); opt.textContent=s.name+" - "+s.price; sel.appendChild(opt); }
+  document.getElementById("galleryHome").innerHTML=galleryHTML(); document.getElementById("galleryServices").innerHTML=galleryHTML();
+  var tg=document.getElementById("teamGrid"); tg.innerHTML=""; for(var m=0;m<d.team.length;m++){ var mem=d.team[m]; var tc=document.createElement("div"); tc.className="team-card"; var imgHtml=mem.photo?'<img src="'+esc(mem.photo)+'">':'<div class="team-avatar">'+esc(mem.name.charAt(0))+'</div>'; var btnHtml=mem.phone?'<a href="https://wa.me/'+esc(mem.phone)+'" target="_blank" style="display:inline-block;margin-top:8px;background:#25D366;color:#fff;padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700">WhatsApp</a>':'<span style="font-size:12px;color:#999">No WhatsApp yet</span>'; tc.innerHTML=imgHtml+'<h4 style="margin-top:8px;color:#1B6B4A">'+esc(mem.name)+'</h4><p style="font-size:13px;color:#666">'+esc(mem.role)+'</p>'+btnHtml; tg.appendChild(tc); }
+}
+function sendWhatsApp(e){ e.preventDefault(); var d=getData(); var text="Hi Zaakiyah! I am "+document.getElementById("name").value+" ("+document.getElementById("clientPhone").value+"). I want: "+document.getElementById("serviceSelect").value+" | Theme: "+document.getElementById("theme").value+" | Flavour: "+document.getElementById("flavour").value+" | Size: "+document.getElementById("size").value+" | Date: "+document.getElementById("date").value+" | Pickup: "+document.getElementById("pickup").value+". Details: "+document.getElementById("msg").value; window.open("https://wa.me/"+d.phone+"?text="+encodeURIComponent(text),"_blank"); }
+function showAdmin(){ document.getElementById("site").style.display="none"; document.getElementById("admin").style.display="block"; window.scrollTo(0,0); if(localStorage.getItem("zaakiyah_logged")==="yes"){ showDash(); } }
+function showSite(){ document.getElementById("admin").style.display="none"; document.getElementById("site").style.display="block"; renderSite(); }
+function doLogin(){ var d=getData(); var phone=document.getElementById("loginPhone").value.replace(/\s/g,""); var pass=document.getElementById("loginPass").value.replace(/\s/g,""); if((phone===d.phone.replace("27","0")||phone===d.phone)&&pass===d.password){ localStorage.setItem("zaakiyah_logged","yes"); showDash(); } else { document.getElementById("loginError").textContent="Wrong number or password."; } }
+function showDash(){ var d=getData(); document.getElementById("loginBox").style.display="none"; document.getElementById("dashBox").style.display="block"; document.getElementById("showPhone").textContent=d.phone; document.getElementById("editPhone").value=d.phone; document.getElementById("editSpecial").value=d.special||""; document.getElementById("editShowSpecial").checked=!!d.showSpecial; toggleSpecialInput(); document.getElementById("currentLogoPreview").innerHTML=d.logo?'<img src="'+esc(d.logo)+'" class="upload-preview">':'<p class="small">Currently using DEMO logo. Upload yours below.</p>'; renderEditServices(); renderEditTeam(); renderEditGallery(); }
+function renderEditServices(){ var d=getData(); var box=document.getElementById("editServices"); box.innerHTML=""; for(var i=0;i<d.services.length;i++){ var s=d.services[i]; var div=document.createElement("div"); div.className="admin-card"; var l1=document.createElement("label"); l1.textContent="Item "+(i+1)+" Name"; var in1=document.createElement("input"); in1.className="srv-name"; in1.value=s.name; var l2=document.createElement("label"); l2.textContent="Description"; var in2=document.createElement("input"); in2.className="srv-desc"; in2.value=s.desc; var l3=document.createElement("label"); l3.textContent="Price"; var in3=document.createElement("input"); in3.className="srv-price"; in3.value=s.price; var del=document.createElement("button"); del.className="btn btn-grey"; del.textContent="X Delete"; (function(idx){ del.onclick=function(){ deleteService(idx); }; })(i); div.appendChild(l1); div.appendChild(in1); div.appendChild(l2); div.appendChild(in2); div.appendChild(l3); div.appendChild(in3); div.appendChild(del); box.appendChild(div); } }
+function renderEditTeam(){ var d=getData(); var box=document.getElementById("editTeam"); box.innerHTML=""; for(var i=0;i<d.team.length;i++){ var m=d.team[i]; var div=document.createElement("div"); div.className="admin-card"; var l1=document.createElement("label"); l1.textContent="Team "+(i+1)+" - Name"; var in1=document.createElement("input"); in1.className="team-name"; in1.value=m.name; var l2=document.createElement("label"); l2.textContent="Job / Role"; var in2=document.createElement("input"); in2.className="team-role"; in2.value=m.role; var l3=document.createElement("label"); l3.textContent="Their WhatsApp (with 27)"; var in3=document.createElement("input"); in3.className="team-phone"; in3.value=m.phone; var del=document.createElement("button"); del.className="btn btn-grey"; del.textContent="X Remove"; (function(idx){ del.onclick=function(){ deleteBrother(idx); }; })(i); div.appendChild(l1); div.appendChild(in1); div.appendChild(l2); div.appendChild(in2); div.appendChild(l3); div.appendChild(in3); if(m.photo){ var im=document.createElement("img"); im.src=m.photo; im.className="upload-preview"; div.appendChild(im); } var file=document.createElement("input"); file.type="file"; file.accept="image/*"; (function(idx){ file.onchange=function(ev){ uploadBrotherPhoto(ev,idx); }; })(i); div.appendChild(file); div.appendChild(del); box.appendChild(div); } }
+function renderEditGallery(){ var d=getData(); var box=document.getElementById("editGallery"); box.innerHTML=""; for(var i=0;i<d.gallery.length;i++){ var g=d.gallery[i]; var div=document.createElement("div"); div.className="admin-card"; if(g.indexOf("data:")===0){ var im=document.createElement("img"); im.src=g; im.className="upload-preview"; div.appendChild(im); } else { var dv=document.createElement("div"); dv.style.fontSize="28px"; dv.style.textAlign="center"; dv.textContent=g; div.appendChild(dv); } var del=document.createElement("button"); del.className="btn btn-grey"; del.textContent="X Delete Photo"; (function(idx){ del.onclick=function(){ deleteGallery(idx); }; })(i); div.appendChild(del); box.appendChild(div); } }
+function addService(){ var d=getData(); d.services.push({name:"New Item",desc:"Describe it",price:"From R0"}); saveData(d); renderEditServices(); }
+function deleteService(i){ if(!confirm("Delete this item?")) return; var d=getData(); d.services.splice(i,1); saveData(d); renderEditServices(); }
+function addBrother(){ var d=getData(); d.team.push({name:"New Member",role:"Baker",phone:"",photo:""}); saveData(d); renderEditTeam(); }
+function deleteBrother(i){ if(!confirm("Remove this member?")) return; var d=getData(); d.team.splice(i,1); saveData(d); renderEditTeam(); }
+function addGalleryPhoto(e){ var f=e.target.files[0]; if(!f) return; var r=new FileReader(); r.onload=function(){ var d=getData(); d.gallery.push(r.result); saveData(d); renderEditGallery(); renderSite(); }; r.readAsDataURL(f); }
+function deleteGallery(i){ var d=getData(); d.gallery.splice(i,1); saveData(d); renderEditGallery(); renderSite(); }
+function uploadLogo(e){ var f=e.target.files[0]; if(!f) return; var r=new FileReader(); r.onload=function(){ var d=getData(); d.logo=r.result; saveData(d); document.getElementById("currentLogoPreview").innerHTML='<img src="'+esc(d.logo)+'" class="upload-preview">'; renderSite(); alert("Logo uploaded!"); }; r.readAsDataURL(f); }
+function removeLogo(){ var d=getData(); d.logo=""; saveData(d); document.getElementById("currentLogoPreview").innerHTML='<p class="small">Demo logo restored.</p>'; renderSite(); }
+function uploadBrotherPhoto(e,i){ var f=e.target.files[0]; if(!f) return; var r=new FileReader(); r.onload=function(){ var d=getData(); d.team[i].photo=r.result; saveData(d); renderEditTeam(); renderSite(); }; r.readAsDataURL(f); }
+function saveAll(){ var d=getData(); d.phone=document.getElementById("editPhone").value.replace(/\s/g,"").replace(/^\+/,""); d.special=document.getElementById("editSpecial").value; d.showSpecial=document.getElementById("editShowSpecial").checked; var names=document.querySelectorAll(".srv-name"); var descs=document.querySelectorAll(".srv-desc"); var prices=document.querySelectorAll(".srv-price"); var ns=[]; for(var k=0;k<names.length;k++){ ns.push({name:names[k].value,desc:descs[k].value,price:prices[k].value}); } d.services=ns; var tnames=document.querySelectorAll(".team-name"); var troles=document.querySelectorAll(".team-role"); var tphones=document.querySelectorAll(".team-phone"); var nt=[]; for(var j=0;j<tnames.length;j++){ nt.push({name:tnames[j].value,role:troles[j].value,phone:tphones[j].value,photo:d.team[j]?d.team[j].photo:""}); } d.team=nt; saveData(d); document.getElementById("saveMsg").textContent="Saved! Website updated."; renderSite(); }
+function changePassword(){ var d=getData(); var o=document.getElementById("oldPass").value.trim(); var n=document.getElementById("newPass").value.trim(); var n2=document.getElementById("newPass2").value.trim(); if(o!==d.password){ document.getElementById("passMsg").style.color="red"; document.getElementById("passMsg").textContent="Old password wrong."; return; } if(!/^[0-9]+$/.test(n)){ document.getElementById("passMsg").style.color="red"; document.getElementById("passMsg").textContent="Numbers only."; return; } if(n!==n2){ document.getElementById("passMsg").style.color="red"; document.getElementById("passMsg").textContent="Passwords do not match."; return; } d.password=n; saveData(d); document.getElementById("passMsg").style.color="green"; document.getElementById("passMsg").textContent="Password changed!"; }
+function doLogout(){ localStorage.removeItem("zaakiyah_logged"); location.reload(); }
+if(location.hash==="#admin"){ showAdmin(); }
+renderSite();
+</script>
+</body>
+</html>
